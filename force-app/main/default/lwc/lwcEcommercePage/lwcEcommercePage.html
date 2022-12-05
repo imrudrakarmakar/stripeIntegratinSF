@@ -1,0 +1,30 @@
+<template>
+    <div>
+        <lightning-layout class="container" multiple-rows="">
+            <lightning-layout-item size="12">
+                <div class="slds-text-heading_large slds-text-align_center slds-m-bottom_medium">Stripe Payment Checkout</div>
+            </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="productName" value={storeObjName} onchange={storeHandleChange} type="text" label="Product Name" placeholder="Product Name">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="productPrice" value={storeObjPrice} onchange={storeHandleChange} type="text" label="Product Price" placeholder="Product Price">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="productQty" value={storeObjQty} onchange={storeHandleChange} type="text" label="Product Qty" placeholder="Product Qty">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-combobox name="productCurrency" value={storeObjCurrency} onchange={storeHandleChange} label="Product Currency" options={options} placeholder="Product Currency">
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12">
+                    <lightning-button class="slds-align_absolute-center slds-m-top_medium" variant="success"
+                        label="Go to Payment" title="Payment" onclick={handleClick}></lightning-button>
+                </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

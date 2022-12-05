@@ -1,0 +1,74 @@
+<template>
+    
+    <lightning-layout class="container" multiple-rows="true" vertical-align="end">
+        <lightning-layout-item size="12" small-device-size="4" medium-device-size="2" padding="around-small">
+            <h1>Get the top Headline</h1>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" small-device-size="4" medium-device-size="2" padding="around-small">
+            <lightning-button title="Get the top Headline" label="Get News" variant="brand" onclick={handleNewsApi}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout class="container" multiple-rows="true" vertical-align="end">
+        <lightning-layout-item size="12" small-device-size="10" medium-device-size="8" large-device-size="6" padding="around-small">
+            <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                            <lightning-input type="text" label="Search" value={newsSearchInput} onchange={handleSearchInput} ></lightning-input>
+                    </div>
+                </div> 
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="2" medium-device-size="2" large-device-size="2" padding="around-small">
+                    <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout class="container" multiple-rows="true" vertical-align="end">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <lightning-combobox title="Select by Category" label="Select by Category" value={newsByCategoryValue} placeholder="--Select--"
+                options={options} onchange={handleCategoryNewsName}></lightning-combobox>
+            </div>
+        </div>
+        <lightning-layout-item size="12" small-device-size="4" medium-device-size="2" padding="around-small">
+            <lightning-button title="Search" label="Search by Category" variant="brand" onclick={handleCategoryNews}></lightning-button>
+          </lightning-layout-item>
+    </lightning-layout>
+    <br/><br/>
+    <template if:true={newsApiData}>
+            <div class="slds-p-around_medium" id="modal_content-id-1">
+                <div style="font-size: 30px"><h1>Hot News</h1></div>
+                <div class="container">
+                    <div class="slds-grid slds-gutters slds-wrap justify-center">
+                        <template for:each={result} for:item="item">
+                            <div class="card" key={item.id}>
+                                <img  src={item.urlToImage} />
+                                <div class="card-text">
+                                    <span class="date">{item.date}</span>
+                                    <h2>{item.title}</h2>
+                                    <p>{item.description}</p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+    </template>
+
+    <template if:true={newsApiDataByCategory}>
+        <div class="slds-p-around_medium" id="modal_content-id-2">
+            <div style="font-size: 30px"><h1>News By Category</h1></div>
+            <div class="container">
+                <div class="slds-grid slds-gutters slds-wrap justify-center">
+                    <template for:each={result} for:item="itemByCategory">
+                        <div class="card" key={itemByCategory.id}>
+                            <div class="card-text">
+                                <p>{itemByCategory.description}</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+</template>
+
+</template>

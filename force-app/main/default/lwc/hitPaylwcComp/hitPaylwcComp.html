@@ -1,0 +1,24 @@
+<template>
+    <div>
+        <lightning-layout class="container" multiple-rows="">
+            <lightning-layout-item size="12">
+                <div class="slds-text-heading_large slds-text-align_center slds-m-bottom_medium">HitPay Payment Request</div>
+            </lightning-layout-item>
+
+                <lightning-layout-item size="12">
+                    <lightning-input name="paymentAmount" value={storeObjPrice} onchange={storeHandleChange} type="text" label="Enter Amount" placeholder="Enter Amount">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-combobox name="paymentCurrency" value={storeObjCurrency} onchange={storeHandleChange} options={options} label="Currency" placeholder="--Select--">
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12">
+                    <lightning-button class="slds-align_absolute-center slds-m-top_medium" variant="success"
+                        label="Go to Payment" title="Payment" onclick={handlePaymentClick}></lightning-button>
+                </lightning-layout-item>
+
+        </lightning-layout>
+    </div>
+</template>

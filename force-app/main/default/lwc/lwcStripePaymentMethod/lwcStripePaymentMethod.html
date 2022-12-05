@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <lightning-layout class="container" multiple-rows="">
+            <lightning-layout-item size="12">
+                <div class="slds-text-heading_large slds-text-align_center slds-m-bottom_medium">Stripe Payment Method</div>
+            </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerName" onchange={storeHandleChange} type="text" label="Full Name" placeholder="Full Name">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerCardNumber" onchange={storeHandleChange} type="text" label="Card Number" placeholder="Card Number">
+                    </lightning-input>
+                </lightning-layout-item>
+                <div>
+                    <lightning-layout>
+                        <lightning-layout-item size="4">
+                            <lightning-input name="customerExpMonth" onchange={storeHandleChange} type="text" label="Expire Month" placeholder="Expire Month">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <lightning-input name="customerExpYear" onchange={storeHandleChange} type="text" label="Expire Year" placeholder="Expire Year">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <lightning-input name="customerCVV" onchange={storeHandleChange} type="text" label="CVV" placeholder="CVV">
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+
+                <lightning-layout-item size="12">
+                    <lightning-button class="slds-align_absolute-center slds-m-top_medium" variant="success"
+                        label="Create new payemnt" type="reset" onclick={paymentMethodHandleClick}></lightning-button>
+                </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

@@ -1,0 +1,76 @@
+<template>
+    <div>
+        <lightning-layout class="container" multiple-rows="">
+            <lightning-layout-item size="12">
+                <div class="slds-text-heading_large slds-text-align_center slds-m-bottom_medium">Stripe Create Customer</div>
+            </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerName" onchange={storeHandleChange} type="text" label="Full Name" placeholder="Full Name">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerPhone" onchange={storeHandleChange} type="text" label="Phone" placeholder="Phone">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerEmail" onchange={storeHandleChange} type="text" label="Email" placeholder="Email">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerCity" onchange={storeHandleChange} type="text" label="City" placeholder="City">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerCountry" onchange={storeHandleChange} type="text" label="Country" placeholder="Country">
+                    </lightning-input>
+                </lightning-layout-item>
+
+                <!-- Card details  -->
+                <lightning-layout-item size="12">
+                    <lightning-input name="customerCardNumber" onchange={storeHandleChange} type="text" label="Card Number" placeholder="Card Number">
+                    </lightning-input>
+                </lightning-layout-item>
+                <div>
+                    <lightning-layout>
+                        <lightning-layout-item size="4">
+                            <lightning-input name="customerExpMonth" onchange={storeHandleChange} type="text" label="Expire Month" placeholder="Expire Month">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <lightning-input name="customerExpYear" onchange={storeHandleChange} type="text" label="Expire Year" placeholder="Expire Year">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <lightning-input name="customerCVV" onchange={storeHandleChange} type="text" label="CVV" placeholder="CVV">
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <!-- Card details  -->
+
+                <!-- Checkout Section  -->
+                <lightning-layout-item size="12">
+                    <lightning-input name="productName" value={storeObjName} onchange={storeHandleChange} type="text" label="Product Name" placeholder="Product Name">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="productPrice" value={storeObjPrice} onchange={storeHandleChange} type="text" label="Product Price" placeholder="Product Price">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-input name="productQty" value={storeObjQty} onchange={storeHandleChange} type="text" label="Product Qty" placeholder="Product Qty">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-combobox name="productCurrency" value={storeObjCurrency} onchange={storeHandleChange} label="Product Currency" options={options} placeholder="Product Currency">
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+
+                <lightning-layout-item size="12">
+                    <lightning-button class="slds-align_absolute-center slds-m-top_medium" variant="success"
+                        label="Create new customer" type="reset" onclick={customerHandleClick}></lightning-button>
+                </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
